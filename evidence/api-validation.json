@@ -1,0 +1,45 @@
+{
+  "base_url": "http://127.0.0.1:8000",
+  "checks_passed": 8,
+  "results": [
+    {
+      "case": "health",
+      "status": 200
+    },
+    {
+      "case": "prediction_matches_exported_artifact",
+      "status": 200,
+      "response": {
+        "symbol": "BTC/USD",
+        "currency": "USD",
+        "prediction_date": "2026-10-05",
+        "predicted_close": 86913.88190883047,
+        "horizon_days": 1
+      }
+    },
+    {
+      "case": "interactive_docs",
+      "status": 200
+    },
+    {
+      "case": "only_six_days",
+      "status": 422
+    },
+    {
+      "case": "missing_day",
+      "status": 422
+    },
+    {
+      "case": "negative_price",
+      "status": 422
+    },
+    {
+      "case": "non_finite_price",
+      "status": 422
+    },
+    {
+      "case": "reverse_date_order",
+      "status": 422
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+    "source_url":  "https://www.cryptodatadownload.com/cdd/Bitstamp_BTCUSD_d.csv",
+    "exchange":  "Bitstamp",
+    "symbol":  "BTC/USD",
+    "frequency":  "daily",
+    "timezone":  "UTC",
+    "first_date":  "2023-01-01",
+    "last_date":  "2026-10-04",
+    "as_of_date_exclusive":  "2026-10-05",
+    "rows":  1372,
+    "rows_2026":  276,
+    "missing_dates":  [
+                          "2026-05-22"
+                      ],
+    "missing_data_policy":  "Preservar os dados reais; no treinamento, excluir janelas que atravessem dias ausentes.",
+    "raw_sha256":  "530249c71df1eed15a26e2104d5920645165b23abf1dc98fb09585568489c215",
+    "processed_sha256":  "097142816ac641bd91644fd27eb98bd31804996496b300f2d38872243beffe30",
+    "validation":  "Datas unicas em ordem cronologica; fechamento positivo; volume nao negativo; lacunas registradas."
+}

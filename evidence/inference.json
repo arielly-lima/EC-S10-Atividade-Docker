@@ -1,0 +1,48 @@
+{
+  "health": {
+    "status": "ok",
+    "model_loaded": true,
+    "model": "RandomForestRegressor",
+    "symbol": "BTC/USD",
+    "data_last_date": "2026-10-04"
+  },
+  "request": {
+    "history": [
+      {
+        "date": "2026-09-28",
+        "close": 83461.65
+      },
+      {
+        "date": "2026-09-29",
+        "close": 83629.41
+      },
+      {
+        "date": "2026-09-30",
+        "close": 83562.58
+      },
+      {
+        "date": "2026-10-01",
+        "close": 84852.65
+      },
+      {
+        "date": "2026-10-02",
+        "close": 84500.84
+      },
+      {
+        "date": "2026-10-03",
+        "close": 84746.87
+      },
+      {
+        "date": "2026-10-04",
+        "close": 86510.16
+      }
+    ]
+  },
+  "prediction": {
+    "symbol": "BTC/USD",
+    "currency": "USD",
+    "prediction_date": "2026-10-05",
+    "predicted_close": 86913.88190883046,
+    "horizon_days": 1
+  }
+}

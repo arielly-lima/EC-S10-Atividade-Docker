@@ -1,0 +1,73 @@
+{
+  "model_type": "RandomForestRegressor",
+  "model_parameters": {
+    "n_estimators": 200,
+    "max_depth": 10,
+    "min_samples_leaf": 3,
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "symbol": "BTC/USD",
+  "currency": "USD",
+  "timezone": "UTC",
+  "horizon_days": 1,
+  "window_days": 7,
+  "feature_names": [
+    "close_lag_7",
+    "close_lag_6",
+    "close_lag_5",
+    "close_lag_4",
+    "close_lag_3",
+    "close_lag_2",
+    "close_lag_1"
+  ],
+  "input_order": "Mais antigo para mais recente, sete dias consecutivos",
+  "data_first_date": "2023-01-01",
+  "data_last_date": "2026-10-04",
+  "data_sha256": "097142816ac641bd91644fd27eb98bd31804996496b300f2d38872243beffe30",
+  "data_rows": 1372,
+  "usable_samples": 1358,
+  "skipped_windows_due_to_gaps": 7,
+  "evaluation": {
+    "split": "80% treino / 20% teste, em ordem cronologica",
+    "train_samples": 1086,
+    "test_samples": 272,
+    "train_target_first_date": "2023-01-08",
+    "train_target_last_date": "2025-12-28",
+    "test_target_first_date": "2025-12-29",
+    "test_target_last_date": "2026-10-04",
+    "random_forest": {
+      "mae_usd": 1678.0206630208443,
+      "rmse_usd": 2223.8232765959647
+    },
+    "baseline_last_close": {
+      "mae_usd": 1183.9657720588239,
+      "rmse_usd": 1742.5061125455074
+    }
+  },
+  "exported_model_fit": "Todo o historico disponivel, depois da avaliacao",
+  "sklearn_version": "1.9.1",
+  "numpy_version": "2.5.3",
+  "pandas_version": "3.0.6",
+  "joblib_version": "1.6.0",
+  "example": {
+    "last_date": "2026-10-04",
+    "closes": [
+      83461.65,
+      83629.41,
+      83562.58,
+      84852.65,
+      84500.84,
+      84746.87,
+      86510.16
+    ],
+    "prediction_date": "2026-10-05",
+    "predicted_close_usd": 86913.88190883046
+  },
+  "limitations": [
+    "Predicao experimental para demonstracao da integracao.",
+    "Usa somente sete fechamentos; nao considera noticias ou fatores externos.",
+    "Random Forest nao extrapola bem para precos fora da faixa observada."
+  ],
+  "artifact_sha256": "057378759e2067522fe966157caeea12eedc99d72112ade9f0c47185e88d7a1f"
+}
