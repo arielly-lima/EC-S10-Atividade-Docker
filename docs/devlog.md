@@ -80,19 +80,19 @@ A escolha está relacionada ao fato que essa base de dados está entre as opçõ
 
 ## 05/10/2026 — Etapa 5: evidências visuais no HTTPie
 
-Executei os três testes no HTTPie e salvei as capturas em `assets/`.
+Executei os três testes no HTTPie e salvei as capturas em `evidence/httpie/`.
 
 **Serviço ativo:** `GET /health` retornou HTTP **200**, `status: ok` e `model_loaded: true`.
 
-![Verificação de saúde no HTTPie](assets/01-health.png)
+![Verificação de saúde no HTTPie](../evidence/httpie/01-health.png)
 
 **Predição válida:** `POST /predict` retornou HTTP **200** e estimou o fechamento de **05/10/2026 em US$ 86.913,88**, usando sete fechamentos anteriores.
 
-![Predição de Bitcoin no HTTPie](assets/02-predict.png)
+![Predição de Bitcoin no HTTPie](../evidence/httpie/02-predict.png)
 
 **Histórico incompleto:** `POST /predict` com seis dias retornou HTTP **422**, informando que a lista deve conter ao menos sete registros. Essa rejeição é o resultado esperado do teste.
 
-![Rejeição de histórico incompleto no HTTPie](assets/03-invalid-history.png)
+![Rejeição de histórico incompleto no HTTPie](../evidence/httpie/03-invalid-history.png)
 
 ## 05/10/2026 — Etapa 6: fechamento da documentação
 
@@ -133,3 +133,10 @@ classDiagram
 
 - Atualizei o `.gitignore` para excluir ambientes virtuais, caches, variáveis locais, arquivos temporários e configurações pessoais de editores.
 - Mantive os dados, o notebook executado, o modelo exportado e as evidências JSON e visuais na entrega. Logs dentro de `evidence/` também podem ser versionados.
+
+## 05/10/2026 — Organização das pastas
+
+- Reuni o escopo e o devlog em `docs/`, os Dockerfiles em `docker/` e as dependências em `requirements/`.
+- Reuni as capturas do HTTPie em `evidence/httpie/`, junto das demais evidências de execução.
+- Atualizei os caminhos do Compose, a instalação das dependências e os links da documentação. O README apresenta a árvore de pastas e os comandos atualizados, executados a partir da raiz.
+- Conferi a configuração do Compose, os arquivos usados pelos Dockerfiles, as dependências instaladas e os links das imagens. Os arquivos de capturas, escopo e modelo mantiveram seus conteúdos.

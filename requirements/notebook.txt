@@ -1,4 +1,4 @@
--r requirements.txt
+-r training.txt
 nbformat==5.11.1
 nbclient==0.11.0
 ipykernel==7.4.0

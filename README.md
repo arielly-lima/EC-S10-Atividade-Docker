@@ -10,9 +10,30 @@ Passo a passo de execução:
 
 ## Documentação
 
-- [Escopo da atividade](Escopo-atividade.md)
-- [Devlog](devlog.md)
+- [Escopo da atividade](docs/escopo-atividade.md)
+- [Devlog](docs/devlog.md)
 - [Origem e validação dos dados](data/metadata.json)
+
+## Organização do projeto
+
+```text
+.
+├── README.md                 # Visão geral e comandos de execução
+├── compose.yaml              # Serviços de treinamento e backend
+├── docker/                   # Dockerfiles de treinamento e API
+├── requirements/             # Dependências de treinamento, API e notebook
+├── src/                      # Código Python de treinamento e backend
+├── scripts/                  # Importação, cliente e verificação da API
+├── notebooks/                # Notebook executado
+├── data/                     # Dados originais, preparados e sua origem
+├── models/                   # Modelo exportado, metadados e avaliação
+├── examples/                 # Corpos JSON para testar a API
+├── evidence/                 # Resultados JSON dos testes
+│   └── httpie/               # Capturas dos testes visuais
+└── docs/                     # Escopo da atividade e devlog
+```
+
+Executar os comandos a partir da raiz do projeto. O `compose.yaml` usa os Dockerfiles em `docker/` e mantém os volumes de dados e modelos nas mesmas pastas.
 
 ## Etapa 1 — Dados preparados
 
@@ -90,11 +111,11 @@ Para reproduzir no PowerShell, com Python 3.13 instalado:
 
 ```powershell
 python -m venv .venv
-./.venv/Scripts/python.exe -m pip install -r requirements-notebook.txt
+./.venv/Scripts/python.exe -m pip install -r requirements/notebook.txt
 ./.venv/Scripts/python.exe scripts/run_notebook.py
 ```
 
-Se `python` não estiver no PATH, use o caminho do executável instalado para criar o ambiente virtual. As versões das dependências de treinamento estão fixadas em `requirements.txt`.
+Se `python` não estiver no PATH, use o caminho do executável instalado para criar o ambiente virtual. As versões das dependências de treinamento estão fixadas em `requirements/training.txt`.
 
 ## Etapa 3 — Treinamento em Docker
 
@@ -153,11 +174,11 @@ Com o container ativo, criar as requisições no HTTPie Desktop. Nas requisiçõ
 | Predição válida | `POST http://localhost:8000/predict` | Conteúdo de `examples/prediction_request.json` | HTTP 200, previsão de aproximadamente US$ 86.913,88 para 05/10/2026 |
 | Histórico incompleto | `POST http://localhost:8000/predict` | Conteúdo de `examples/prediction_invalid_six_days.json` | HTTP 422, pois foram enviados seis dias e a API exige sete |
 
-Os três testes manuais foram executados no HTTPie. As capturas foram salvas pela estudante em `assets/` e incorporadas ao [devlog](devlog.md):
+Os três testes manuais foram executados no HTTPie. As capturas foram salvas pela estudante em `evidence/httpie/` e incorporadas ao [devlog](docs/devlog.md):
 
-- [Serviço ativo — HTTP 200](assets/01-health.png).
-- [Predição — HTTP 200](assets/02-predict.png).
-- [Histórico com seis dias — HTTP 422](assets/03-invalid-history.png).
+- [Serviço ativo — HTTP 200](evidence/httpie/01-health.png).
+- [Predição — HTTP 200](evidence/httpie/02-predict.png).
+- [Histórico com seis dias — HTTP 422](evidence/httpie/03-invalid-history.png).
 
 ## Etapa 6 — Documentação e entrega
 
