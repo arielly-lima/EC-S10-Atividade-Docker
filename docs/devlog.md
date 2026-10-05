@@ -140,3 +140,17 @@ classDiagram
 - Reuni as capturas do HTTPie em `evidence/httpie/`, junto das demais evidências de execução.
 - Atualizei os caminhos do Compose, a instalação das dependências e os links da documentação. O README apresenta a árvore de pastas e os comandos atualizados, executados a partir da raiz.
 - Conferi a configuração do Compose, os arquivos usados pelos Dockerfiles, as dependências instaladas e os links das imagens. Os arquivos de capturas, escopo e modelo mantiveram seus conteúdos.
+
+## 05/10/2026 — Revalidação após organizar as pastas
+
+- Executei `docker compose --profile training build training backend`; as duas imagens foram construídas com os novos caminhos de Dockerfiles e dependências.
+- Executei `docker compose up -d --wait backend`; o container ficou **healthy**. Repeti `./.venv/Scripts/python.exe scripts/check_api.py` e as **oito verificações passaram**.
+- Preservei a saída compartilhada do terminal em `evidence/revalidation-docker.log`. A solução local está validada na estrutura final.
+- A reorganização já consta no commit `8c52965`, sincronizado com `origin/main`. Os registros desta revalidação foram preparados para o próximo commit da documentação.
+
+## 05/10/2026 — Aprofundamento do relato pessoal
+
+- A partir da orientação do professor, solicitei uma documentação mais pessoal, explicando o que fiz, por que fiz, como executei e quais decisões tomei.
+- Iniciei o esboço em `readme-oficial.md` e pedi apoio da IA para aprofundá-lo com base neste devlog, mantendo suas sete etapas e o resumo do fluxo.
+- O relato reúne minhas justificativas para as ferramentas, a preparação dos dados, as métricas, o compartilhamento do artefato, o conflito de porta e os testes, com links para as evidências.
+- Explicitei a participação da IA e os comandos que assumi durante o desenvolvimento. Esta revisão alterou apenas a documentação.

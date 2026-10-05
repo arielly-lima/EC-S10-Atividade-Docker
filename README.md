@@ -182,7 +182,9 @@ Os três testes manuais foram executados no HTTPie. As capturas foram salvas pel
 
 ## Etapa 6 — Documentação e entrega
 
-O desenvolvimento local e a documentação estão concluídos. O repositório inclui o diagrama UML, os dados e sua origem, o notebook executado, o código Python, os Dockerfiles, o Compose, o modelo exportado e as evidências JSON e visuais. A entrega no GitHub ainda depende do commit e do push dos arquivos.
+O desenvolvimento local e a documentação estão concluídos. O repositório inclui o diagrama UML, os dados e sua origem, o notebook executado, o código Python, os Dockerfiles, o Compose, o modelo exportado e as evidências JSON e visuais. A entrega é feita pelo link do repositório no GitHub.
+
+Após reorganizar as pastas, as imagens de treinamento e backend foram reconstruídas, o backend ficou **healthy** e as **oito verificações da API passaram novamente**. A saída está em [evidence/revalidation-docker.log](evidence/revalidation-docker.log). Esta evidência confirma a execução na estrutura final do projeto.
 
 Pré-requisitos para reproduzir: Docker Desktop ativo; Git para obter o repositório; Python 3.13 para executar o notebook ou os clientes Python. Os comandos deste README são para PowerShell, executados na raiz do projeto. Os dados já estão salvos, portanto não é necessário baixá-los novamente.
 

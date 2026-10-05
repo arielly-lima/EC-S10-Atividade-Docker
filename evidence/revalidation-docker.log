@@ -1,0 +1,228 @@
+1af6af0ec31d768ff6e378a93340c3b3db5f 0.0s done
+#7 resolve docker.io/library/python:3.13-slim@sha256:3dd7cc108ec1493442514f5c2a871af6af0ec31d768ff6e378a93340c3b3db5f 0.0s done
+#7 DONE 0.1s
+
+#8 [backend 2/5] WORKDIR /app
+#8 CACHED
+
+#9 [backend internal] load build context
+#9 transferring context: 10.57kB 0.0s done
+#9 DONE 0.1s
+
+#10 [training 3/5] COPY requirements/training.txt ./requirements/training.txt
+#10 DONE 0.0s
+
+#11 [training 4/5] RUN pip install --no-cache-dir -r requirements/training.txt
+#11 3.166 Collecting numpy==2.5.3 (from -r requirements/training.txt (line 1))
+#11 3.284   Downloading numpy-2.5.3-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+#11 3.512 Collecting pandas==3.0.6 (from -r requirements/training.txt (line 2))
+#11 3.525   Downloading pandas-3.0.6-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+#11 3.669 Collecting scikit-learn==1.9.1 (from -r requirements/training.txt (line 3))
+#11 3.681   Downloading scikit_learn-1.9.1-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.3 kB)
+#11 3.706 Collecting joblib==1.6.0 (from -r requirements/training.txt (line 4))
+#11 3.719   Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+#11 3.892 Collecting scipy==1.18.1 (from -r requirements/training.txt (line 5))
+#11 3.902   Downloading scipy-1.18.1-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+#11 3.955 Collecting threadpoolctl==3.7.0 (from -r requirements/training.txt (line 6))
+#11 3.968   Downloading threadpoolctl-3.7.0-py3-none-any.whl.metadata (24 kB)
+#11 4.023 Collecting narwhals==2.26.0 (from -r requirements/training.txt (line 7))
+#11 4.038   Downloading narwhals-2.26.0-py3-none-any.whl.metadata (15 kB)
+#11 4.074 Collecting cloudpickle==3.1.2 (from -r requirements/training.txt (line8))
+#11 4.090   Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+#11 4.110 Collecting python-dateutil==2.9.0.post0 (from -r requirements/training.txt (line 9))
+#11 4.127   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+#11 4.150 Collecting six==1.17.0 (from -r requirements/training.txt (line 10))
+#11 4.163   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+#11 4.183 Collecting tzdata==2026.5 (from -r requirements/training.txt (line 11))
+#11 4.194   Downloading tzdata-2026.5-py2.py3-none-any.whl.metadata (1.4 kB)
+#11 4.222 Downloading numpy-2.5.3-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+#11 5.631    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 12.2 MB/s  0:00:01
+#11 5.668 Downloading pandas-3.0.6-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (10.8 MB)
+#11 6.542    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.8/10.8 MB 12.3 MB/s  0:00:00
+#11 6.558 Downloading scikit_learn-1.9.1-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.1 MB)
+#11 7.305    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.1/9.1 MB 12.3 MB/s  0:00:00
+#11 7.314 Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
+#11 7.378 Downloading scipy-1.18.1-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+#11 11.88    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 10.1 MB/s  0:00:03
+#11 11.89 Downloading threadpoolctl-3.7.0-py3-none-any.whl (26 kB)
+#11 11.91 Downloading narwhals-2.26.0-py3-none-any.whl (474 kB)
+#11 11.97 Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+#11 11.99 Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+#11 12.04 Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+#11 12.06 Downloading tzdata-2026.5-py2.py3-none-any.whl (347 kB)
+#11 12.48 Installing collected packages: tzdata, threadpoolctl, six, numpy, narwhals, cloudpickle, scipy, python-dateutil, joblib, scikit-learn, pandas
+#11 32.84 
+#11 32.84 Successfully installed cloudpickle-3.1.2 joblib-1.6.0 narwhals-2.26.0 numpy-2.5.3 pandas-3.0.6 python-dateutil-2.9.0.post0 scikit-learn-1.9.1 scipy-1.18.1 six-1.17.0 threadpoolctl-3.7.0 tzdata-2026.5
+#11 32.84 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#11 DONE 33.2s
+
+#12 [backend 3/7] COPY requirements/training.txt ./requirements/training.txt
+#12 CACHED
+
+#13 [backend 4/7] RUN pip install --no-cache-dir -r requirements/training.txt
+#13 CACHED
+
+#14 [training 5/5] COPY src/ ./src/
+#14 DONE 0.1s
+
+#15 [backend 5/7] COPY requirements/api.txt ./requirements/api.txt
+#15 DONE 0.1s
+
+#16 [training] exporting to image
+#16 exporting layers
+#16 ...
+
+#17 [backend 6/7] RUN pip install --no-cache-dir -r requirements/api.txt
+#17 1.511 Requirement already satisfied: numpy==2.5.3 in /usr/local/lib/python3.13/site-packages (from -r /app/requirements/training.txt (line 1)) (2.5.3)
+#17 1.513 Requirement already satisfied: pandas==3.0.6 in /usr/local/lib/python3.13/site-packages (from -r /app/requirements/training.txt (line 2)) (3.0.6)
+#17 1.516 Requirement already satisfied: scikit-learn==1.9.1 in /usr/local/lib/python3.13/site-packages (from -r /app/requirements/training.txt (line 3)) (1.9.1)
+#17 1.516 Requirement already satisfied: joblib==1.6.0 in /usr/local/lib/python3.13/site-packages (from -r /app/requirements/training.txt (line 4)) (1.6.0)
+#17 1.517 Requirement already satisfied: scipy==1.18.1 in /usr/local/lib/python3.13/site-packages (from -r /app/requirements/training.txt (line 5)) (1.18.1)
+#17 1.518 Requirement already satisfied: threadpoolctl==3.7.0 in /usr/local/lib/python3.13/site-packages (from -r /app/requirements/training.txt (line 6)) (3.7.0)
+#17 1.519 Requirement already satisfied: narwhals==2.26.0 in /usr/local/lib/python3.13/site-packages (from -r /app/requirements/training.txt (line 7)) (2.26.0)
+#17 1.528 Requirement already satisfied: cloudpickle==3.1.2 in /usr/local/lib/python3.13/site-packages (from -r /app/requirements/training.txt (line 8)) (3.1.2)
+#17 1.529 Requirement already satisfied: python-dateutil==2.9.0.post0 in /usr/local/lib/python3.13/site-packages (from -r /app/requirements/training.txt (line 9)) (2.9.0.post0)
+#17 1.530 Requirement already satisfied: six==1.17.0 in /usr/local/lib/python3.13/site-packages (from -r /app/requirements/training.txt (line 10)) (1.17.0)
+#17 1.531 Requirement already satisfied: tzdata==2026.5 in /usr/local/lib/python3.13/site-packages (from -r /app/requirements/training.txt (line 11)) (2026.5)
+#17 1.729 Collecting fastapi==0.142.2 (from -r requirements/api.txt (line 2))
+#17 1.822   Downloading fastapi-0.142.2-py3-none-any.whl.metadata (27 kB)
+#17 1.950 Collecting uvicorn==0.54.0 (from -r requirements/api.txt (line 3))
+#17 1.971   Downloading uvicorn-0.54.0-py3-none-any.whl.metadata (6.6 kB)
+#17 2.028 Collecting starlette==1.7.0 (from -r requirements/api.txt (line 4))
+#17 2.038   Downloading starlette-1.7.0-py3-none-any.whl.metadata (6.6 kB)
+#17 2.253 Collecting pydantic==2.13.5 (from -r requirements/api.txt (line 5))
+#17 2.267   Downloading pydantic-2.13.5-py3-none-any.whl.metadata (110 kB)
+#17 3.100 Collecting pydantic-core==2.46.5 (from -r requirements/api.txt (line 6))
+#17 3.112   Downloading pydantic_core-2.46.5-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+#17 3.131 Collecting typing-extensions==4.16.0 (from -r requirements/api.txt (line 7))
+#17 3.143   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#17 3.158 Collecting typing-inspection==0.4.4 (from -r requirements/api.txt (line 8))
+#17 3.168   Downloading typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+#17 3.182 Collecting annotated-doc==0.0.5 (from -r requirements/api.txt (line 9))
+#17 3.198   Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+#17 3.217 Collecting annotated-types==0.8.0 (from -r requirements/api.txt (line 10))
+#17 3.230   Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+#17 3.283 Collecting opentelemetry-api==1.45.0 (from -r requirements/api.txt (line 11))
+#17 3.298   Downloading opentelemetry_api-1.45.0-py3-none-any.whl.metadata (1.4 kB)
+#17 3.336 Collecting click==8.5.0 (from -r requirements/api.txt (line 12))
+#17 3.364   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+#17 3.384 Collecting h11==0.16.0 (from -r requirements/api.txt (line 13))
+#17 3.414   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#17 3.440 Collecting anyio==4.15.1 (from -r requirements/api.txt (line 14))
+#17 3.460   Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+#17 3.482 Collecting idna==3.20 (from -r requirements/api.txt (line 15))
+#17 3.494   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+#17 3.575 Downloading fastapi-0.142.2-py3-none-any.whl (144 kB)
+#17 3.603 Downloading uvicorn-0.54.0-py3-none-any.whl (87 kB)
+#17 3.622 Downloading starlette-1.7.0-py3-none-any.whl (78 kB)
+#17 3.665 Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+#17 3.704 Downloading pydantic-2.13.5-py3-none-any.whl (472 kB)
+#17 3.828 Downloading pydantic_core-2.46.5-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+#17 4.137    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 6.9 MB/s  0:00:00
+#17 4.158 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+#17 4.186 Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+#17 4.201 Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+#17 4.216 Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+#17 4.233 Downloading opentelemetry_api-1.45.0-py3-none-any.whl (60 kB)
+#17 4.262 Downloading click-8.5.0-py3-none-any.whl (125 kB)
+#17 4.286 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+#17 4.327 Downloading idna-3.20-py3-none-any.whl (69 kB)
+#17 4.593 Installing collected packages: typing-extensions, idna, h11, click, annotated-types, annotated-doc, uvicorn, typing-inspection, pydantic-core, opentelemetry-api, anyio, starlette, pydantic, fastapi
+#17 6.396 
+#17 6.402 Successfully installed annotated-doc-0.0.5 annotated-types-0.8.0 anyio-4.15.1 click-8.5.0 fastapi-0.142.2 h11-0.16.0 idna-3.20 opentelemetry-api-1.45.0pydantic-2.13.5 pydantic-core-2.46.5 starlette-1.7.0 typing-extensions-4.16.0 typing-inspection-0.4.4 uvicorn-0.54.0
+#17 6.402 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#17 DONE 6.7s
+
+#16 [training] exporting to image
+#16 ...
+
+#18 [backend 7/7] COPY src/ ./src/
+#18 DONE 0.1s
+
+#19 [backend] exporting to image
+#19 exporting layers
+#19 ...
+
+#16 [training] exporting to image
+#16 exporting layers 19.6s done
+#16 exporting manifest sha256:a6edd1cd1bd8f94c2b68605fd267b2633e14e1e1e86a56b045e810ef1fc9e11c 0.0s done
+#16 exporting config sha256:2d88c9779aa47365a4044d269cde86c83e49858568a6fa1daf79570ee30acd2c 0.0s done
+#16 exporting attestation manifest sha256:8b4430e44f91913197d7547ac0a42bd6d4c499b8817bc3d73c0cf2a853ecf8be
+#16 exporting attestation manifest sha256:8b4430e44f91913197d7547ac0a42bd6d4c499b8817bc3d73c0cf2a853ecf8be 0.1s done
+#16 exporting manifest list sha256:624edd3ed41fbb0ae7a0e30609fd6ec306f3b8e243ee18e3cd1a57579085402c 0.0s done
+#16 naming to docker.io/library/ec-s10-atividade-docker-training:latest
+#16 naming to docker.io/library/ec-s10-atividade-docker-training:latest 0.0s done
+#16 unpacking to docker.io/library/ec-s10-atividade-docker-training:latest
+#16 unpacking to docker.io/library/ec-s10-atividade-docker-training:latest 6.0s done
+#16 DONE 26.0s
+
+#19 [backend] exporting to image
+#19 exporting layers 12.8s done
+#19 exporting manifest sha256:d8fa0c97bdc1f903fa402738cf7df720a25e0997ccba652e97d5dfc69a91ecf5 0.0s done
+#19 exporting config sha256:38dc62dd75ee5bd2bed514d513f77202d9b29c25b73d68040085783d49b7899f 0.0s done
+#19 exporting attestation manifest sha256:a5594abf204c7ca0bcb683099137b6db4df9290d5eeceed4b8ce40bba729a14c 0.0s done
+#19 exporting manifest list sha256:c0c5aba0503774e4bf6461924aa6826aa7d7ecf0899f965234b468704d2d1d35 0.0s done
+#19 naming to docker.io/library/ec-s10-atividade-docker-backend:latest 0.0s done
+#19 unpacking to docker.io/library/ec-s10-atividade-docker-backend:latest
+#19 ...
+
+#20 [training] resolving provenance for metadata file
+#20 DONE 0.1s
+
+#19 [backend] exporting to image
+#19 unpacking to docker.io/library/ec-s10-atividade-docker-backend:latest 6.7s done
+#19 DONE 19.9s
+
+#21 [backend] resolving provenance for metadata file
+#21 DONE 0.0s
+[+] build 2/2
+ ✔ Image ec-s10-atividade-docker-backend  Built                             63.8s
+ ✔ Image ec-s10-atividade-docker-training Built                             63.7s
+[+] up 1/1
+ ✔ Container ec-s10-atividade-docker-backend-1 Healthy                      14.1s
+{
+  "base_url": "http://127.0.0.1:8000",
+  "checks_passed": 8,
+  "results": [
+    {
+      "case": "health",
+      "status": 200
+    },
+    {
+      "case": "prediction_matches_exported_artifact",
+      "status": 200,
+      "response": {
+        "symbol": "BTC/USD",
+        "currency": "USD",
+        "prediction_date": "2026-10-05",
+        "predicted_close": 86913.88190883047,
+        "horizon_days": 1
+      }
+    },
+    {
+      "case": "interactive_docs",
+      "status": 200
+    },
+    {
+      "case": "only_six_days",
+      "status": 422
+    },
+    {
+      "case": "missing_day",
+      "status": 422
+    },
+    {
+      "case": "negative_price",
+      "status": 422
+    },
+    {
+      "case": "non_finite_price",
+      "status": 422
+    },
+    {
+      "case": "reverse_date_order",
+      "status": 422
+    }
+  ]
+}
+(.venv) PS C:\Use
