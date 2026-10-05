@@ -1,5 +1,5 @@
 # Devlog Atividade ponderada: modelo de predição com Docker
-
+## Aluno: Maria Arielly Lima de Oliveira
 Antes de iniciar o desenvolvimento com auxílio de IA, dividi a atividade nas etapas abaixo para acompanhar a execução e registrar as decisões ao longo do processo. Meu objetivo foi construir uma solução que treinasse um modelo com dados históricos de uma moeda e disponibilizasse esse modelo em um backend Python, executado em outro container.
 
 Ao ler o escopo da atividade, considerei que precisava demonstrar todo o caminho entre os dados, o treinamento, o artefato exportado e uma solicitação de predição. Por isso, organizei o trabalho para validar cada parte antes de avançar. Os registros feitos durante o desenvolvimento estão detalhados de forma mais técnica e aprofundada no [devlog cronológico](docs/devlog.md); neste documento, detalho o que foi feito, como o resultado foi conferido e por que tomei cada decisão.
