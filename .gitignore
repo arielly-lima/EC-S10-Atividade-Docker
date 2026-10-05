@@ -1,6 +1,48 @@
+# Ambientes virtuais e variaveis locais
 .venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Caches e arquivos gerados pelo Python e pelos notebooks
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
+.ipython/
+.jupyter/
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
 
+# Empacotamento Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Configuracoes pessoais de editores e arquivos do sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporarios e logs locais; logs de evidencias podem ser versionados
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+*.log
+!evidence/**/*.log
+
+# Dados, notebooks, modelos e capturas fazem parte da entrega e nao sao ignorados.

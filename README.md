@@ -20,7 +20,7 @@ Bitcoin em dólar (BTC/USD), histórico diário da Bitstamp via CryptoDataDownlo
 
 - Original: `data/raw/bitstamp_btcusd_daily.csv`.
 - Preparado: `data/processed/btcusd_daily.csv` (`date`, `close`, `volume_btc`).
-- Há uma lacuna em **22/05/2026**. O treinamento deverá excluir sequências que atravessem esse dia, preservando o horizonte de um dia.
+- Há uma lacuna em **22/05/2026**. O treinamento excluiu sete sequências que atravessavam esse dia, preservando o horizonte de um dia.
 
 Para reproduzir a preparação com o CSV já salvo, no PowerShell:
 
@@ -32,7 +32,7 @@ Para baixar novamente, execute o mesmo comando sem `-UseLocal` (requer internet 
 
 ## Esboço UML da arquitetura
 
-A proposta usa uma pasta de artefatos compartilhada entre os containers; o backend a recebe apenas para leitura.
+A solução usa uma pasta de artefatos compartilhada entre os containers; o backend a recebe apenas para leitura. O notebook e o container de treinamento chamam o mesmo código de `src/train.py`; o container executa esse módulo Python diretamente.
 
 ```mermaid
 classDiagram
@@ -153,7 +153,33 @@ Com o container ativo, criar as requisições no HTTPie Desktop. Nas requisiçõ
 | Predição válida | `POST http://localhost:8000/predict` | Conteúdo de `examples/prediction_request.json` | HTTP 200, previsão de aproximadamente US$ 86.913,88 para 05/10/2026 |
 | Histórico incompleto | `POST http://localhost:8000/predict` | Conteúdo de `examples/prediction_invalid_six_days.json` | HTTP 422, pois foram enviados seis dias e a API exige sete |
 
-Salvar as capturas em `evidence/httpie/`, como `01-health.png`, `02-predict.png` e `03-invalid-history.png`, mostrando método, URL, código HTTP e corpo da resposta. Na predição, incluir também o corpo enviado. Essas capturas serão incorporadas ao devlog após a execução manual; ainda não foram produzidas.
+Os três testes manuais foram executados no HTTPie. As capturas foram salvas pela estudante em `assets/` e incorporadas ao [devlog](devlog.md):
+
+- [Serviço ativo — HTTP 200](assets/01-health.png).
+- [Predição — HTTP 200](assets/02-predict.png).
+- [Histórico com seis dias — HTTP 422](assets/03-invalid-history.png).
+
+## Etapa 6 — Documentação e entrega
+
+O desenvolvimento local e a documentação estão concluídos. O repositório inclui o diagrama UML, os dados e sua origem, o notebook executado, o código Python, os Dockerfiles, o Compose, o modelo exportado e as evidências JSON e visuais. A entrega no GitHub ainda depende do commit e do push dos arquivos.
+
+Pré-requisitos para reproduzir: Docker Desktop ativo; Git para obter o repositório; Python 3.13 para executar o notebook ou os clientes Python. Os comandos deste README são para PowerShell, executados na raiz do projeto. Os dados já estão salvos, portanto não é necessário baixá-los novamente.
+
+Para demonstrar a solução usando o modelo exportado, construir/iniciar o backend na etapa 4 e executar o cliente da etapa 5. Para gerar o modelo novamente, executar antes o treinamento da etapa 3. Se treinar novamente com o backend já ativo, reiniciá-lo para carregar o novo artefato:
+
+```powershell
+docker compose restart backend
+```
+
+Para a apresentação, mostrar o UML, explicar o compartilhamento de `models/`, consultar `/health`, solicitar uma predição e apresentar as métricas e limitações. As três capturas do HTTPie registram as respostas válidas e a rejeição de uma entrada incompleta.
+
+Para encerrar os serviços depois da demonstração:
+
+```powershell
+docker compose down
+```
+
+Os dados e o modelo permanecem nas pastas locais compartilhadas. O repositório de entrega configurado é [arielly-lima/EC-S10-Atividade-Docker](https://github.com/arielly-lima/EC-S10-Atividade-Docker).
 
 ## Limitações
 

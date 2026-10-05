@@ -78,4 +78,58 @@ A escolha está relacionada ao fato que essa base de dados está entre as opçõ
 - Saúde, predição e documentação retornaram HTTP **200**. Histórico com seis dias, datas não consecutivas, preço negativo, preço não finito e datas em ordem inversa foram rejeitados com HTTP **422**, conforme esperado.
 - Escolhi complementar os registros com testes visuais no **HTTPie Desktop**, antes de concluir a documentação. Foram preparados os exemplos e a pasta `evidence/httpie/` para capturar saúde, predição e rejeição de histórico incompleto. Os testes manuais e as capturas ainda estão pendentes.
 
-## 1.2. 
+## 05/10/2026 — Etapa 5: evidências visuais no HTTPie
+
+Executei os três testes no HTTPie e salvei as capturas em `assets/`.
+
+**Serviço ativo:** `GET /health` retornou HTTP **200**, `status: ok` e `model_loaded: true`.
+
+![Verificação de saúde no HTTPie](assets/01-health.png)
+
+**Predição válida:** `POST /predict` retornou HTTP **200** e estimou o fechamento de **05/10/2026 em US$ 86.913,88**, usando sete fechamentos anteriores.
+
+![Predição de Bitcoin no HTTPie](assets/02-predict.png)
+
+**Histórico incompleto:** `POST /predict` com seis dias retornou HTTP **422**, informando que a lista deve conter ao menos sete registros. Essa rejeição é o resultado esperado do teste.
+
+![Rejeição de histórico incompleto no HTTPie](assets/03-invalid-history.png)
+
+## 05/10/2026 — Etapa 6: fechamento da documentação
+
+- Concluí as etapas locais: dados históricos, treinamento no notebook, treinamento em Docker, backend Python em um segundo container e predição por HTTP.
+- Registrei as decisões, métricas, a lacuna do CSV, o conflito de porta e sua resolução, os oito testes aprovados e as três capturas do HTTPie.
+- A principal limitação observada foi o Random Forest ter erro maior que repetir o último fechamento. Mantive essa comparação documentada; a previsão é experimental.
+- O README contém os comandos para reproduzir e demonstrar a solução. O modelo exportado acompanha o repositório; também pode ser gerado novamente pelo treinamento.
+- A publicação dos arquivos no GitHub segue pendente de commit e push.
+
+### UML e fluxo do artefato
+
+O notebook e o container de treinamento usam `src/train.py`. O treino grava `models/model.joblib`; o backend recebe a mesma pasta como volume de somente leitura e carrega o artefato ao iniciar. O cliente Python e o HTTPie solicitam predições por HTTP.
+
+```mermaid
+classDiagram
+    class DadosCSV
+    class Notebook
+    class ContainerTreinamento
+    class ModeloJoblib
+    class ContainerFastAPI
+    class ClienteHTTP
+    <<artifact>> DadosCSV
+    <<component>> Notebook
+    <<component>> ContainerTreinamento
+    <<artifact>> ModeloJoblib
+    <<component>> ContainerFastAPI
+    <<component>> ClienteHTTP
+    DadosCSV --> Notebook : fornece historico
+    DadosCSV --> ContainerTreinamento : fornece historico
+    Notebook --> ModeloJoblib : treina e exporta
+    ContainerTreinamento --> ModeloJoblib : treina e exporta
+    ModeloJoblib --> ContainerFastAPI : pasta models montada para leitura
+    ClienteHTTP --> ContainerFastAPI : GET health e POST predict
+    ContainerFastAPI --> ClienteHTTP : resposta JSON
+```
+
+## 05/10/2026 — Preparação para versionamento
+
+- Atualizei o `.gitignore` para excluir ambientes virtuais, caches, variáveis locais, arquivos temporários e configurações pessoais de editores.
+- Mantive os dados, o notebook executado, o modelo exportado e as evidências JSON e visuais na entrega. Logs dentro de `evidence/` também podem ser versionados.
